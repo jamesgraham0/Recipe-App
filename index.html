@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>James' Recipe Website</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <script src="index.js"></script>
+    <nav>
+        <a href="/">Home</a> 
+        <a href="./about.html">About</a>
+      </nav>
+      <form action=onSubmit>
+        <label for="title">Recipe Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="ingredients">Ingredients:</label><br>
+        <input type="text" id="ingredients" name="ingredients"><br>
+        <label for="instructions">instructions:</label><br>
+        <input type="text" id="instructions" name="instructions"><br><br>
+        <input type="button" onclick="addRecipe()" value="Add Recipe">
+        <input type="reset" value="Clear">
+      </form>
+      <h2>Your Recipes</h2>
+      <div id="recipeContainer">
+        <div id="recipes">
+            
+        </div>
+      </div>
+      <button class="deleteRecipes" onclick="deleteAllRecipes()">Delete Recipes</button>
+  </body>
+</html>
