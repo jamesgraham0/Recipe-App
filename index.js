@@ -26,10 +26,6 @@ function loadRecipes() {
     recipeCards.forEach(recipe => {
         var div = document.createElement("div");
         div.classList = "recipe";
-        div.style.width = "100px";
-        div.style.height = "100px";
-        div.style.background = "red";
-        div.style.color = "white";
         div.innerHTML = recipe.title;
 
         document.getElementById("recipes").appendChild(div);
@@ -46,10 +42,6 @@ function addRecipe() {
     recipeCards.push(recipe);
     var div = document.createElement("div");
     div.classList = "recipe";
-    div.style.width = "100px";
-    div.style.height = "100px";
-    div.style.background = "blue";
-    div.style.color = "white";
     div.innerHTML = recipe.title;
 
     document.getElementById("recipes").appendChild(div);

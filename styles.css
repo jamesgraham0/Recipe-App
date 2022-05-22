@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+:root {
+    --color-primary: rgb(236, 193, 0);
+    --color-primary-light: rgb(231, 201, 66);
+    --color-secondary: rgb(132, 0, 255);
+    --color-secondary-light: rgb(164, 73, 248);
+    --color-background: rgb(22, 0, 32);
+}
+
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: #00ff00;
+}
+
+body {
+    background: var(--color-background);
+    min-height: 100vh;
+    font-family: "Poppins";
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+
+#circle1 {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 200px;
+    width: 200px;
+    background: var(--color-primary);
+    filter: blur(140px);
+}
+
+#circle2 {
+    position: fixed;
+    top: 300px;
+    right: 300px;
+    height: 250px;
+    width: 250px;
+    background: var(--color-secondary);
+    filter: blur(130px);
+}
+
+#circle3 {
+    position: fixed;
+    bottom: 400px;
+    left: 300px;
+    height: 150px;
+    width: 150px;
+    background: var(--color-primary-light);
+    filter: blur(120px);
+}
+
+#circle4 {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 200px;
+    width: 200px;
+    background: var(--color-secondary-light);
+    filter: blur(160px);
+}
+
+h1 {
+    font-family: 'Roboto Mono', monospace;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    padding: 25px;
+}
+
+nav {
+    position: fixed;
+    width: 200px;
+    top: -40px;
+    left: 60%;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    border-radius: 50px;
+    opacity: 0;
+    animation: fade-nav-in 1s ease 1 forwards;
+}
+  
+@keyframes fade-nav-in {
+    to {
+      transform: translateY(150%) translateX(0);
+      opacity: 1;
+    }
+}
+
+a {
+    font-size: 20px;
+}
+
+a:hover {
+    opacity: 0.5;
+    color: var(--color-primary);
+}
+
+#form, #recipe-container {
+    position: relative;
+    margin-top: 200px;
+    left: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+h2 {
+    position: relative;    
+    font-size: 30px;
+    color: var(--color-primary);
+    opacity: 0.75;
+    top: 170px;
+    left: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    text-decoration: underline;
+    text-shadow: 0 0 8px var(--color-primary), 0 0 14px #e60073, 0 0 20px #b800e6, 0 0 28px #e60073, 0 0 35px var(--color-primary-light);
+}
+
+label {
+    position: relative;
+    padding: 20px;
+    font-size: 20px;
+}
+
+#title {
+    position: relative;
+    text-align: center;
+    color: #00ff00;
+    padding: 8px;
+    font-family: courier new;
+    width: 400px;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    resize: none;
+}
+
+#ingredients, #instructions {
+    position: relative;
+    width: 400px;
+    height: 150px;
+    color: #00ff00;
+    padding: 8px;
+    font-family: courier new;
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+    background-color: (0, 0, 0, 0.7);
+}
+
+input {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10%;
+    outline: none;
+    border: none;
+}
+
+#add:hover {
+    color: black;
+    background-color: rgba(0, 255, 0, 0.5);
+    cursor: pointer;
+}
+
+#clear:hover {
+    color: black;
+    background-color: rgba(0, 255, 0, 0.5);
+    cursor: pointer;
+}
+
+.delete-recipes {
+    width: 30px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.recipe {
+    position: relative;
+    padding: 20px;
+    width: 400px;
+    height: 300px;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20%;
+    font-size: 20px;
+}
+
+@media (min-width: 500px) {
+    body {
+        width: 500px;
+    }
+}

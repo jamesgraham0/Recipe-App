@@ -5,30 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>James' Recipe Website</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <script src="index.js"></script>
+    <h1>A Really Awesome Recipe Website</h1>
+    <div id="circle1"></div>
+    <div id="circle2"></div>
+    <div id="circle3"></div>
+    <div id="circle4"></div>
     <nav>
         <a href="/">Home</a> 
         <a href="./about.html">About</a>
-      </nav>
-      <form action=onSubmit>
+    </nav>
+    <h2>Add Recipe</h2>
+    <div id="form">
+        <form action=onSubmit>
         <label for="title">Recipe Title:</label><br>
-        <input type="text" id="title" name="title"><br>
+        <textarea type="text" id="title" name="title"></textarea><br>
         <label for="ingredients">Ingredients:</label><br>
-        <input type="text" id="ingredients" name="ingredients"><br>
-        <label for="instructions">instructions:</label><br>
-        <input type="text" id="instructions" name="instructions"><br><br>
-        <input type="button" onclick="addRecipe()" value="Add Recipe">
-        <input type="reset" value="Clear">
-      </form>
-      <h2>Your Recipes</h2>
-      <div id="recipeContainer">
+        <textarea type="text" id="ingredients" name="ingredients"></textarea><br>
+        <label for="instructions">Instructions:</label><br>
+        <textarea type="text" id="instructions" name="instructions"></textarea><br><br>
+        <input id="add" type="button" onclick="addRecipe()" value="Add Recipe">
+        <input id="clear" type="reset" value="Clear">
+        </form>
+    </div>
+    <h2>Your Recipes</h2>
+    <div id="recipe-container">
         <div id="recipes">
-            
+            <!--div's with class="recipe" here-->
         </div>
-      </div>
-      <button class="deleteRecipes" onclick="deleteAllRecipes()">Delete Recipes</button>
+    </div>
+    <button class="delete-recipes" onclick="deleteAllRecipes()">Delete Recipes</button>
   </body>
 </html>
