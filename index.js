@@ -24,27 +24,63 @@ function loadJSON() {
 
 function loadRecipes() {
     recipeCards.forEach(recipe => {
-        var div = document.createElement("div");
-        div.classList = "recipe";
-        div.innerHTML = recipe.title;
-
-        document.getElementById("recipes").appendChild(div);
+        addRecipeList(recipe);
     });
 }
 
+function validRecipe() {
+    // First check if the recipe's already present in the list
+    let title = document.getElementById("title").value;
+    for (let i = 0; i < recipeCards.length; i++) {
+        if (recipeCards[i].title === title) {
+            return [false, "Recipe already exists with this title"];
+        }
+    }
+
+    // Second check that all areas are filled
+    if (document.getElementById("title").value === "" ||
+    document.getElementById("ingredients").value === "" ||
+    document.getElementById("instructions").value === "") {
+        return [false, "Please fill out all recipe criteria first"];
+    }
+    return [true, "All clear"];
+}
+
+
 function addRecipe() {
-    let recipe = {
-        "title": document.getElementById("title").value,
-        "ingredients": document.getElementById("ingredients").value,
-        "instructions": document.getElementById("instructions").value 
-    };
+    let validAnswer = validRecipe();
+    let trueOrFalse = validAnswer[0];
 
-    recipeCards.push(recipe);
-    var div = document.createElement("div");
-    div.classList = "recipe";
-    div.innerHTML = recipe.title;
+    if (trueOrFalse) {
+        let recipe = {
+            "title": document.getElementById("title").value,
+            "ingredients": document.getElementById("ingredients").value,
+            "instructions": document.getElementById("instructions").value 
+        };
+        addRecipeList(recipe);
+    } else {
+        message = validAnswer[1];
+        alert(message);
+    }
+}
 
-    document.getElementById("recipes").appendChild(div);
+function addRecipeList(recipe) {
+    document.getElementById("delete-recipes").style.display = "block";
+
+    var recipeDiv = document.createElement("div"); 
+    recipeDiv.classList = "recipe";
+    
+    let list = document.createElement("ul");
+    let listItemTitle = document.createElement("li");
+    listItemTitle.innerHTML = "Title: " + recipe.title;
+    let listItemIngredients = document.createElement("li");
+    listItemIngredients.innerHTML = "Ingredients: " + recipe.ingredients;
+    let listItemInstructions = document.createElement("li");
+    listItemInstructions.innerHTML = "Instructions: " + recipe.instructions;
+    
+    list.append(listItemTitle, listItemIngredients, listItemInstructions)
+    recipeDiv.appendChild(list);
+    document.getElementById("recipes").appendChild(recipeDiv);
 }
 
 function deleteAllRecipes() {
@@ -56,6 +92,7 @@ function deleteAllRecipes() {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+    document.getElementById("delete-recipes").style.display = "none";
 }
 
 function init(){

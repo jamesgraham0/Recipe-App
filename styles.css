@@ -201,19 +201,23 @@ input {
     border: none;
 }
 
-#add:hover {
+#add, #clear {
+    font-size: 16px;
+}
+
+#add:hover, #clear:hover {
     color: black;
     background-color: rgba(0, 255, 0, 0.5);
     cursor: pointer;
 }
 
-#clear:hover {
+#add:active, #clear:active {
     color: black;
-    background-color: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, 0.2);
     cursor: pointer;
 }
 
-.delete-recipes {
+#delete-recipes {
     width: 30px;
     height: 10px;
     border-radius: 50%;
@@ -234,4 +238,38 @@ input {
     body {
         width: 500px;
     }
+}
+
+ul {
+    padding: 30px;
+}
+
+li {
+    padding-top: 10px;
+    padding-left: 15px;
+    color: var(--color-primary);
+}
+
+#delete-recipes {
+    font-size: 16px;
+    margin: 10px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10%;
+    outline: none;
+    border: none;
+}
+
+#delete-recipes:hover {
+    color: black;
+    background-color: rgba(0, 255, 0, 0.5);
+    cursor: pointer;
+}
+
+#delete-recipes:active {
+    color: black;
+    background-color: rgba(0, 255, 0, 0.2);
+    cursor: pointer;
 }
