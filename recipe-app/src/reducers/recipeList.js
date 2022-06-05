@@ -1,16 +1,21 @@
 const recipes = [{
-    title:"Pizza",
-    ingredients:"dough, marinara sauce, cheese",
-    instructions:"put sauce and cheese on dough and bake for 15 mins at 350 Farenheit"
-}]
+    id: 0,
+    title: "Pizza",
+    ingredients: "dough, marinara sauce, cheese",
+    instructions: "place toppings on dough and bake for 20 mins at 350 degrees Farenheit"
+}];
 
 const recipeList = (state=recipes, action) => {
     switch (action.type) {
         case 'ADD_RECIPE':
-            recipes.push(action.payload);
-            return recipes;
+            state.push(action.payload);
+            return state;
+        case 'CLEAR_RECIPES':
+            return [];
+        case 'DELETE_RECIPE':
+            return state.splice(action.payload, 1);
         default:
-            return recipes;
+            return state;
     }
 };
 

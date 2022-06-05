@@ -1,13 +1,18 @@
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearRecipes } from '../../actions/index';
 
-import { useState, useEffect } from 'react';
 
 export default function Recipes() {
-    const [recipes, setRecipe] = useState([]);
+    const [recipe, setRecipe] = useState();
+    const recipeList = useSelector(state => state.recipeList);
+    const dispatch = useDispatch();
 
-    
-    useEffect(() => {
-        console.log(recipes);
-    }, [recipes]);
+    function clearRecipeHelper(event) {
+        event.preventDefault();
+        dispatch(clearRecipes());
+        setRecipe([]);
+    }
 
     return (
         <div className="recipes">
@@ -15,17 +20,18 @@ export default function Recipes() {
             <div id="recipe-container">
             <div id="recipes">
                 {/*div's with className="recipe" here*/}
-                {recipes.map((recipe) => (
+                {recipeList.map((recipe) => (
                     <div className="recipe">
-                        <li key={recipe.title}>
-                            <p>Title: {recipe.title}</p>
-                            <p>Ingredients: {recipe.ingredients}</p>
-                            <p>Instructions: {recipe.instructions}</p>
-                        </li>
+                        <h3>Title:</h3>
+                        <p>{recipe.title}</p><br/>
+                        <h3>Ingredients:</h3>
+                        <p>{recipe.ingredients}</p><br/>
+                        <h3>Instructions:</h3>
+                        <p>{recipe.instructions}</p><br/>
                     </div>
                 ))}
             </div>
-            <button id="delete-recipes">Delete Recipes</button>
+            <button id="delete-recipes" onClick = {(event) => clearRecipeHelper(event)}>Delete Recipes</button>
         </div>
         </div>
     );

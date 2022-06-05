@@ -1,16 +1,30 @@
 import '../../styles.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addRecipe } from '../../actions/index.js';
+import Recipes from '../Recipes/Recipes';
 
 
 export default function AddRecipe() {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState("");
     const [instructions, setInstructions] = useState("");
+    const [recipe, setRecipe] = useState();
 
-    const recipes = useSelector(state => state.recipes);
+    const recipeList = useSelector(state => state.recipeList);
     const dispatch = useDispatch();
+
+    function addHelper(event) {
+        event.preventDefault();
+        let recipe = {
+            id: recipeList.length-1,
+            title: title,
+            ingredients: ingredients,
+            instructions: instructions
+        };
+        dispatch(addRecipe(recipe));
+        setRecipe(recipe);
+    }
 
     function clearRecipe(event) {
         event.preventDefault();
@@ -51,14 +65,11 @@ export default function AddRecipe() {
                             onChange={(e) => setInstructions(e.target.value)}
                         />
                     </label>
-                    <button id="add" onClick = {() => dispatch(addRecipe({
-                        title:"Pasta",
-                        ingredients:"Spaghetti, sauce, grated parmesan",
-                        instructions:"boil water, place spaghetti in water for 8 mins, add sauce and parmesan"
-                    }))}>Add Recipe</button>
+                    <button id="add" onClick = {(event) => addHelper(event)}>Add Recipe</button>
                     <button id="clear" onClick = {(event) => clearRecipe(event)}>Clear</button>
                 </form>
             </div>
+            <Recipes/>
         </div>
     );
 }
