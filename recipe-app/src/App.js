@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider, useDispatch } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './reducers/index';
+
+import Navbar from './components/Navbar/Navbar.jsx';
+import AddRecipe from './components/AddRecipe/AddRecipe.jsx';
+import Recipes from './components/Recipes/Recipes.jsx';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>A Really Awesome Recipe Website</h1>
+      <div id="circle1" className="circle"></div>
+      <div id="circle2" className="circle"></div>
+      <div id="circle3" className="circle"></div>
+      <div id="circle4" className="circle"></div>
+      
+      {/* <Provider store={store}> */}
+        <Navbar/>
+        <AddRecipe/>
+        <Recipes/>
+      {/* </Provider> */}
     </div>
   );
 }
