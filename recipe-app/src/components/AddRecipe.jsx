@@ -9,7 +9,7 @@ export default function AddRecipe() {
     const [ingredients, setIngredients] = useState("");
     const [instructions, setInstructions] = useState("");
     const [time, setTime] = useState("");
-    const [recipe, setRecipe] = useState(0);
+    const [recipe, setRecipe] = useState("");
 
     const recipeList = useSelector(state => state.recipeList);
     const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export default function AddRecipe() {
         setTitle("");
         setIngredients("");
         setInstructions("");
-        setTime(0);
+        setTime("");
     }
 
     function timeHelper(event) {
