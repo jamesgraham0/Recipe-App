@@ -11,9 +11,16 @@ export const clearRecipes = () => {
     }
 };
 
-export const deleteRecips = recipeId => {
+export const deleteRecipe = recipeId => {
     return {
         type: 'DELETE_RECIPE',
         payload: recipeId
+    }
+};
+
+export const selectRecipe = recipe => {
+    return {
+        type: 'SELECT_RECIPE',
+        payload: recipe
     }
 };

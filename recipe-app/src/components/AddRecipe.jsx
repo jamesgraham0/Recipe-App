@@ -1,8 +1,7 @@
-import '../../styles.css';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addRecipe } from '../../actions/index.js';
-import Recipes from '../Recipes/Recipes';
+import { addRecipe } from '../actions/index.js';
+import Recipes from './Recipes';
 
 
 export default function AddRecipe() {
@@ -17,7 +16,8 @@ export default function AddRecipe() {
     function addHelper(event) {
         event.preventDefault();
         let recipe = {
-            id: recipeList.length-1,
+            id: recipeList.length,
+            selected: false,
             title: title,
             ingredients: ingredients,
             instructions: instructions

@@ -1,5 +1,5 @@
-import Navbar from './components/Navbar/Navbar.jsx';
-import AddRecipe from './components/AddRecipe/AddRecipe.jsx';
+import Navbar from './components/Navbar.jsx';
+import AddRecipe from './components/AddRecipe.jsx';
 
 function App() {
   return (
