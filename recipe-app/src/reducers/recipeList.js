@@ -1,6 +1,6 @@
 const recipes = [{
     id: 0,
-    selected: true,
+    selected: false,
     title: "Pizza",
     ingredients: "dough, marinara sauce, cheese",
     instructions: "place toppings on dough and bake for 20 mins at 350 degrees Farenheit"

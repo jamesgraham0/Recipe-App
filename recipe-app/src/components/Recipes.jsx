@@ -18,13 +18,13 @@ export default function Recipes() {
     function deleteHelper(event, id) {
         event.preventDefault();
         dispatch(deleteRecipe(id));
-        setRecipe([]);
+        setRecipe({});
     }
 
     function selectHelper(event, recipe) {
         event.preventDefault();
         dispatch(selectRecipe(recipe));
-        setRecipe(recipe);
+        setRecipe(recipe)
     }
 
     return (
@@ -33,15 +33,13 @@ export default function Recipes() {
             <div id="recipe-container">
             <div className="recipes">
                 {recipeList.map((recipe) => (
-                        <div className="recipe">
+                        <div key={recipe.id.toString()} className="recipe">
                             <button id="recipe-button-select" onClick = {(event) => selectHelper(event, recipe)}>Select</button>
-                            <button id="recipe-button-x" onClick={(event) => deleteHelper(event, recipe.id)}>X</button>
+                            <button id="recipe-button-x" onClick={(event) => deleteHelper(event, recipe.id)}>X</button>                
                             <h3>Title:</h3>
                             <p>{recipe.title}</p><br/>
                             <h3>Ingredients:</h3>
                             <p>{recipe.ingredients}</p><br/>
-                            <h3>Instructions:</h3>
-                            <p>{recipe.instructions}</p><br/>
                         </div>
                 ))}
             </div>

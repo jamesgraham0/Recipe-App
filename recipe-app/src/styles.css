@@ -430,7 +430,7 @@ button:active {
     height: 400px;
     background-color: rgba(153, 3, 190, 0.377);
     right: 100px;
-    bottom: 40vh;
+    bottom: 36vh;
     color: white;
     border-radius: 50px;
     box-shadow: -10px -10px 40px 5px rgba(195, 0, 255, 0.349);
@@ -461,4 +461,12 @@ button:active {
     left: -30px;
     top: -60px;
     text-shadow: 0 0 3px white;
+}
+
+.time {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+
+
 }
