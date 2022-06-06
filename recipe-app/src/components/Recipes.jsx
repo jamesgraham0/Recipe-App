@@ -24,7 +24,7 @@ export default function Recipes() {
     function selectHelper(event, recipe) {
         event.preventDefault();
         dispatch(selectRecipe(recipe));
-        setRecipe(recipe)
+        setRecipe(recipe);
     }
 
     return (
@@ -35,7 +35,8 @@ export default function Recipes() {
                 {recipeList.map((recipe) => (
                         <div key={recipe.id.toString()} className="recipe">
                             <button id="recipe-button-select" onClick = {(event) => selectHelper(event, recipe)}>Select</button>
-                            <button id="recipe-button-x" onClick={(event) => deleteHelper(event, recipe.id)}>X</button>                
+                            <button id="recipe-button-x" onClick={(event) => deleteHelper(event, recipe.id)}>X</button>                                            
+                            <p id="p-time">{recipe.time}</p><br/>
                             <h3>Title:</h3>
                             <p>{recipe.title}</p><br/>
                             <h3>Ingredients:</h3>

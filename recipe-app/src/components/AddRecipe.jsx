@@ -8,7 +8,8 @@ export default function AddRecipe() {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState("");
     const [instructions, setInstructions] = useState("");
-    const [recipe, setRecipe] = useState();
+    const [time, setTime] = useState("");
+    const [recipe, setRecipe] = useState(0);
 
     const recipeList = useSelector(state => state.recipeList);
     const dispatch = useDispatch();
@@ -20,7 +21,8 @@ export default function AddRecipe() {
             selected: false,
             title: title,
             ingredients: ingredients,
-            instructions: instructions
+            instructions: instructions,
+            time: time
         };
         dispatch(addRecipe(recipe));
         setRecipe(recipe);
@@ -31,6 +33,16 @@ export default function AddRecipe() {
         setTitle("");
         setIngredients("");
         setInstructions("");
+        setTime(0);
+    }
+
+    function timeHelper(event) {
+        if (!isNaN(event.target.value)) {
+            setTime(event.target.value);
+        }
+        else {
+            setTime(0);
+        }
     }
 
     return (
@@ -63,6 +75,15 @@ export default function AddRecipe() {
                             type="text"
                             value={instructions}
                             onChange={(e) => setInstructions(e.target.value)}
+                        />
+                    </label>
+                    <label>
+                        Time:
+                        <input
+                            id="time"
+                            type="text"
+                            value={time}
+                            onChange={(e) => timeHelper(e)}
                         />
                     </label>
                     <button id="add" onClick = {(event) => addHelper(event)}>Add Recipe</button>

@@ -18,6 +18,7 @@ export default function DetailView() {
             <div id="detail-view">
                 <h3 id="selected-recipe">Selected Recipe</h3>
                     <div id="selected" className="recipe">
+                        <p id="p-time-selected">{selectedRecipe.time}</p><br/>
                         <h3>Title:</h3>
                         <p>{selectedRecipe.title}</p><br/>
                         <h3>Ingredients:</h3>

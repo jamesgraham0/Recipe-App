@@ -6,7 +6,7 @@
     --color-primary-light: rgb(231, 201, 66);
     --color-secondary: rgb(132, 0, 255);
     --color-secondary-light: rgb(164, 73, 248);
-    --color-background: rgb(22, 0, 32);
+    --color-background: rgb(0, 29, 31);
 }
 
 * {
@@ -189,6 +189,8 @@ a:hover {
 }
 
 #recipe-container {
+    position: relative;
+    margin-bottom: 50px;
     color: white;
 }
 
@@ -224,7 +226,7 @@ h2 {
 
 label {
     position: relative;
-    padding: 20px;
+    padding: 0px;
     font-size: 20px;
 }
 
@@ -256,6 +258,25 @@ label {
     padding: 8px;
     font-family: courier new;
     margin-top: 20px;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    resize: none;
+}
+
+#time {
+    position: relative;
+    width: 100px;
+    height: 10px;
+    color: #00ff00;
+    font-family: courier new;
+    margin-top: 10px;
+    margin-bottom: 20px;
     font-size: 18px;
     background-color: rgba(0, 0, 0, 0.4);
     padding: 20px 20px;
@@ -429,8 +450,8 @@ button:active {
     width: 400px;
     height: 400px;
     background-color: rgba(153, 3, 190, 0.377);
-    right: 100px;
-    bottom: 36vh;
+    right: 24vw;
+    bottom: 24vh;
     color: white;
     border-radius: 50px;
     box-shadow: -10px -10px 40px 5px rgba(195, 0, 255, 0.349);
@@ -441,7 +462,7 @@ button:active {
     width: 400px;
     height: 400px;
     background-color: rgba(20, 131, 122, 0.685);
-    right: 50px;
+    right: 20vw;
     bottom: 20vh;
     color: white;
     border-radius: 50px;
@@ -467,6 +488,17 @@ button:active {
     position: absolute;
     right: 0px;
     width: 300px;
+}
 
+#p-time {
+    color: white;
+    position: relative;
+    right: -300px;
+    top: -40px;
+}
 
+#p-time-selected {
+    color: white;
+    position: relative;
+    right: -220px;
 }
