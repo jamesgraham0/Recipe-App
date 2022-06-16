@@ -337,6 +337,16 @@ button:active {
     font-size: 20px;
 }
 
+.addRecipe {
+    width: 25vw;
+    position: relative;
+    left: 20%;
+}
+
+#title, #ingredients, #instructions, .recipe {
+    width: 16vw;
+}
+
 @media (min-width: 500px) {
     body {
         width: 500px;
@@ -371,7 +381,7 @@ button:active {
     .navigation {
         position: fixed;
         height: 150px;
-        width: 80px;
+        width: 50px;
         top: 10%;
         left: 40px;
         background-color: rgba(0, 0, 0, 0.2);
@@ -447,10 +457,10 @@ button:active {
 
 #detail-view-background {
     position: fixed;
-    width: 400px;
-    height: 400px;
+    width: 30%;
+    height: 30%;
     background-color: rgba(153, 3, 190, 0.377);
-    right: 24vw;
+    right: 18vw;
     bottom: 24vh;
     color: white;
     border-radius: 50px;
@@ -459,10 +469,10 @@ button:active {
 
 #detail-view {
     position: fixed;
-    width: 400px;
-    height: 400px;
+    width: 30%;
+    height: 30%;
     background-color: rgba(20, 131, 122, 0.685);
-    right: 20vw;
+    right: 14vw;
     bottom: 20vh;
     color: white;
     border-radius: 50px;
@@ -471,7 +481,7 @@ button:active {
 }
 
 #selected {
-    width: 300px;
+    width: 65%;
     height: fit-content;
     margin: 30px;
 }
