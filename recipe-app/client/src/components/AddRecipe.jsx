@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addRecipe } from '../actions/index.js';
+// import { addRecipe } from '../actions/index.js';
 import Recipes from './Recipes';
+import { addRecipeAsync } from '../redux/recipes/thunks';
 
 
 export default function AddRecipe() {
@@ -11,20 +12,20 @@ export default function AddRecipe() {
     const [time, setTime] = useState("");
     const [recipe, setRecipe] = useState("");
 
-    const recipeList = useSelector(state => state.recipeList);
+    const recipes = useSelector(state => state.recipes.list);
     const dispatch = useDispatch();
 
     function addHelper(event) {
         event.preventDefault();
         let recipe = {
-            id: recipeList.length,
+            id: recipes.length,
             selected: false,
             title: title,
             ingredients: ingredients,
             instructions: instructions,
             time: time
         };
-        dispatch(addRecipe(recipe));
+        dispatch(addRecipeAsync(recipe));
         setRecipe(recipe);
     }
 

@@ -503,12 +503,12 @@ button:active {
 #p-time {
     color: white;
     position: relative;
-    right: -300px;
+    left: 85%;
     top: -40px;
 }
 
 #p-time-selected {
     color: white;
     position: relative;
-    right: -220px;
+    left: 85%;
 }

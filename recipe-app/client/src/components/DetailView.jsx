@@ -6,11 +6,13 @@ export default function DetailView() {
     const recipeList = useSelector(state => state.recipeList);
 
     useEffect(() => {
-        recipeList.map((recipe) => {
-            if (recipe.selected) {
-                setRecipe(recipe);
-            }
-        });
+        if (recipeList) {
+            recipeList.map((recipe) => {
+                if (recipe.selected) {
+                    setRecipe(recipe);
+                }
+            });
+        }
     });
 
     return (
