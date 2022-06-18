@@ -42,4 +42,18 @@ router.delete('/:recipeID', function(req, res, next) {
   return res.send(recipes);
 });
 
+/* PATCH request */
+router.patch('/:recipeID', function(req, res, next) {
+  recipes.map((recipe) => {
+    if (req.params.recipeID == recipe.id) {
+      recipe.selected = true;
+    }
+    else {
+      recipe.selected = false;
+    }
+  })
+  console.log(recipes);
+  return res.send(recipes);
+});
+
 module.exports = router;

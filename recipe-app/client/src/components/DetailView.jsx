@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react';
 
 export default function DetailView() {
     const [selectedRecipe, setRecipe] = useState({});
-    const recipeList = useSelector(state => state.recipeList);
+    const recipes = useSelector(state => state.recipes.list);
 
     useEffect(() => {
-        if (recipeList) {
-            recipeList.map((recipe) => {
+        if (recipes) {
+            recipes.map((recipe) => {
                 if (recipe.selected) {
                     setRecipe(recipe);
                 }

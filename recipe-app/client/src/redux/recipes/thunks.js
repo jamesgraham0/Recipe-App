@@ -29,3 +29,10 @@ export const clearRecipesAsync = createAsyncThunk(
         return await RecipeService.clearRecipes();
     }
 )
+
+export const selectRecipeAsync = createAsyncThunk(
+    actionTypes.SELECT_RECIPE,
+    async (recipe) => {
+        return await RecipeService.selectRecipe( {recipe} );
+    }
+)
