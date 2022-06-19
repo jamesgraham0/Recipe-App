@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { REQUEST_STATE } from '../utils';
-import { addRecipeAsync, getRecipesAsync, deleteRecipeAsync, selectRecipeAsync } from './thunks';
+import { addRecipeAsync, getRecipesAsync, deleteRecipeAsync, selectRecipeAsync, editRecipeAsync } from './thunks';
 
 const INITIAL_STATE = {
     list: [],
@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     addRecipe: REQUEST_STATE.IDLE,
     deleteRecipe: REQUEST_STATE.IDLE,
     selectRecipe: REQUEST_STATE.IDLE,
+    editRecipe: REQUEST_STATE.IDLE,
     error: null
 }
 
@@ -63,6 +64,18 @@ const recipesSlice = createSlice({
         })
         .addCase(selectRecipeAsync.rejected, (state, action) => {
             state.selectRecipe = REQUEST_STATE.REJECTED;
+            state.error = action.error;
+        })
+        .addCase(editRecipeAsync.pending, (state) => {
+            state.editRecipe = REQUEST_STATE.PENDING;
+            state.error = null;
+        })
+        .addCase(editRecipeAsync.fulfilled, (state, action) => {
+            state.editRecipe = REQUEST_STATE.FULFILLED;
+            state.list = action.payload;
+        })
+        .addCase(editRecipeAsync.rejected, (state, action) => {
+            state.editRecipe = REQUEST_STATE.REJECTED;
             state.error = action.error;
         })
     }

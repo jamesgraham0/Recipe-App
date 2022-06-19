@@ -36,3 +36,10 @@ export const selectRecipeAsync = createAsyncThunk(
         return await RecipeService.selectRecipe( {recipe} );
     }
 )
+
+export const editRecipeAsync = createAsyncThunk(
+    actionTypes.EDIT_RECIPE,
+    async (recipe) => {
+        return await RecipeService.editRecipe(recipe);
+    }
+)

@@ -43,7 +43,7 @@ router.delete('/:recipeID', function(req, res, next) {
 });
 
 /* PATCH request */
-router.patch('/:recipeID', function(req, res, next) {
+router.patch('/select/:recipeID', function(req, res, next) {
   recipes.map((recipe) => {
     if (req.params.recipeID == recipe.id) {
       recipe.selected = true;
@@ -53,6 +53,19 @@ router.patch('/:recipeID', function(req, res, next) {
     }
   })
   console.log(recipes);
+  return res.send(recipes);
+});
+
+/* PATCH request */
+router.patch('/edit/:recipeID', function(req, res, next) {
+  recipes.map((recipe) => {
+    if (req.params.recipeID == recipe.id) {
+      recipe.time = req.body.time;
+      recipe.title = req.body.title;
+      recipe.ingredients = req.body.ingredients;
+      recipe.instructions = req.body.instructions;
+    }
+  });
   return res.send(recipes);
 });
 

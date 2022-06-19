@@ -460,6 +460,12 @@ button:active {
     width: 50px;
 }
 
+#recipe-button-done {
+    margin-left: 0px;
+    margin-top: 20px;
+    width: 80px;
+}
+
 #detail-container {
     position: fixed;
     left: 20%;
