@@ -21,14 +21,14 @@ const getRecipes = async () => {
     return response.json();
 };
 
-const deleteRecipe = async (recipeID) => {
-    const response = await fetch('http://localhost:3000/recipes/' + recipeID.toString(), {
+const deleteRecipe = async (recipe) => {
+    const response = await fetch('http://localhost:3000/recipes/' + recipe.recipe._id, {
         method: 'DELETE'
     })
-    .catch(error => {
-        console.log(error);
-    });
-    return response.json();
+    if (!response.ok) {
+        console.error('Response not ok for delete');
+    }
+    return recipe.recipe._id;
 }
 
 const selectRecipe = async (recipe) => {

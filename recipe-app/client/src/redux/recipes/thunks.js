@@ -18,8 +18,8 @@ export const addRecipeAsync = createAsyncThunk(
 
 export const deleteRecipeAsync = createAsyncThunk(
     actionTypes.DELETE_RECIPE,
-    async ( recipeID ) => {
-        return await RecipeService.deleteRecipe( recipeID );
+    async ( recipe ) => {
+        return await RecipeService.deleteRecipe({ recipe });
     }
 )
 

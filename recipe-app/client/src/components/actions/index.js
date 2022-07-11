@@ -11,10 +11,10 @@ export const clearRecipes = () => {
     }
 };
 
-export const deleteRecipe = recipeId => {
+export const deleteRecipe = recipe => {
     return {
         type: 'DELETE_RECIPE',
-        payload: recipeId
+        payload: recipe
     }
 };
 

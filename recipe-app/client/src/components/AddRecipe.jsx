@@ -18,7 +18,6 @@ export default function AddRecipe() {
     function addHelper(event) {
         event.preventDefault();
         let recipe = {
-            id: recipes.length,
             selected: false,
             title: title,
             ingredients: ingredients,
@@ -26,7 +25,6 @@ export default function AddRecipe() {
             time: time
         };
         dispatch(addRecipeAsync(recipe));
-        setRecipe(recipe);
     }
 
     function clearRecipe(event) {

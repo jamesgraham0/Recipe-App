@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectRecipe } from './actions/index';
+// import { selectRecipe } from './actions/index';
 import DetailView from './DetailView';
 import { getRecipesAsync, deleteRecipeAsync, selectRecipeAsync, editRecipeAsync } from '../redux/recipes/thunks';
+const { v4: uuidv4 } = require('uuid');
 
 
 export default function Recipes() {
@@ -14,16 +15,15 @@ export default function Recipes() {
         dispatch(getRecipesAsync());
     }, []);
 
-    function deleteHelper(event, recipeID) {
+    function deleteHelper(event, recipe) {
         event.preventDefault();
-        dispatch(deleteRecipeAsync(recipeID));
-        setRecipe('');
+        dispatch(deleteRecipeAsync(recipe));
+        setRecipe(recipe);
     }
 
     function selectHelper(event, recipe) {
         event.preventDefault();
         dispatch(selectRecipeAsync(recipe));
-
         setRecipe(recipe);
     }
 
@@ -169,18 +169,18 @@ export default function Recipes() {
             <div id="recipe-container">
                 <div className="recipes">
                     {recipes && recipes.map((recipe) => (
-                        <div key={recipe.id.toString()} className="recipe" id={recipe.id.toString()}>
-                            <p id="p-time">{recipe.time}</p>
-                            <button id="recipe-button-select" onClick = {(event) => selectHelper(event, recipe)}>Select</button>
-                            <button id="recipe-button-x" onClick = {(event) => deleteHelper(event, recipe.id)}>X</button>                                            
-                            <button id="recipe-button-edit" onClick = {(event) => editHelper(event, recipe)}>Edit</button>
-                            <h3>Title:</h3>
-                            <p id="p-title">{recipe.title}</p><br/>
-                            <h3>Ingredients:</h3>
-                            <p id="p-ingredients">{recipe.ingredients}</p><br/>
-                            <h3>Instructions:</h3>
-                            <p id="p-instructions">{recipe.instructions}</p><br/>
-                        </div>
+                            <div key={uuidv4()} className="recipe">
+                                <p id="p-time">{recipe.time}</p>
+                                <button id="recipe-button-select" onClick = {(event) => selectHelper(event, recipe)}>Select</button>
+                                <button id="recipe-button-x" onClick = {(event) => deleteHelper(event, recipe)}>X</button>                                            
+                                <button id="recipe-button-edit" onClick = {(event) => editHelper(event, recipe)}>Edit</button>
+                                <h3>Title:</h3>
+                                <p id="p-title">{recipe.title}</p><br/>
+                                <h3>Ingredients:</h3>
+                                <p id="p-ingredients">{recipe.ingredients}</p><br/>
+                                <h3>Instructions:</h3>
+                                <p id="p-instructions">{recipe.instructions}</p><br/>
+                            </div>
                     ))}
                 </div>
             </div>

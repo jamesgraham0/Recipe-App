@@ -14,6 +14,7 @@ const recipeList = (state=recipes, action) => {
         case 'CLEAR_RECIPES':
             return [];
         case 'DELETE_RECIPE':
+            console.log('here');
             state.splice(action.payload, 1)
             let id = 0;
             state.map((recipe) => {

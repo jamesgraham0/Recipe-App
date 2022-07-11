@@ -48,10 +48,17 @@ const recipesSlice = createSlice({
         })
         .addCase(deleteRecipeAsync.fulfilled, (state, action) => {
             state.deleteRecipe = REQUEST_STATE.FULFILLED;
-            state.list = action.payload;
+            let index = 0;
+            state.list.map((recipe) => {
+                if (recipe._id == action.payload) {
+                    state.list.splice(index, 1);
+                }
+                index++;
+            });
         })
         .addCase(deleteRecipeAsync.rejected, (state, action) => {
             state.deleteRecipe = REQUEST_STATE.REJECTED;
+            console.log('delete rejected');
             state.error = action.error;
         })
         .addCase(selectRecipeAsync.pending, (state) => {
