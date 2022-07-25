@@ -34,7 +34,6 @@ router.post('/', function(req, res, next) {
 
 /* DELETE request */
 router.delete('/:recipe_id', async function(req, res, next) {
-  console.log('deleting');
   await queries.deleteOneRecipe(req.params.recipe_id);
   return res.send();
 });
