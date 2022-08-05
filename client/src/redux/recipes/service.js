@@ -1,5 +1,5 @@
 const addRecipe = async (recipe) => {
-    const response = await fetch('http://localhost:3000/recipes', {
+    const response = await fetch('https://recipes-app-james-graham.herokuapp.com/recipes', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -15,14 +15,14 @@ const addRecipe = async (recipe) => {
 };
 
 const getRecipes = async () => {
-    const response = await fetch('http://localhost:3000/recipes', {
+    const response = await fetch('https://recipes-app-james-graham.herokuapp.com/recipes', {
         method: 'GET'
     });
     return response.json();
 };
 
 const deleteRecipe = async (recipe) => {
-    const response = await fetch('http://localhost:3000/recipes/' + recipe.recipe._id, {
+    const response = await fetch('https://recipes-app-james-graham.herokuapp.com/recipes/' + recipe.recipe._id, {
         method: 'DELETE'
     })
     if (!response.ok) {
@@ -33,7 +33,7 @@ const deleteRecipe = async (recipe) => {
 
 const selectRecipe = async (recipe) => {
     let recipeID = recipe.recipe.id;
-    const response = await fetch('http://localhost:3000/recipes/select/' + recipeID.toString(), {
+    const response = await fetch('https://recipes-app-james-graham.herokuapp.com/recipes/select/' + recipeID.toString(), {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const selectRecipe = async (recipe) => {
 
 const editRecipe = async (recipe) => {
     let recipeID = recipe.id;
-    const response = await fetch('http://localhost:3000/recipes/edit/' + recipeID.toString(), {
+    const response = await fetch('https://recipes-app-james-graham.herokuapp.com/recipes/edit/' + recipeID.toString(), {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
