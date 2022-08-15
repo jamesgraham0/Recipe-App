@@ -1,11 +1,17 @@
-name: Recipe App
+name: Deploy
 
 on:
   push:
-  pull_request:
+    branches:
+      - master
 
 jobs:
-  print:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Running!"
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "recipes-app-james-graham"
+          heroku_email: "jgraham.paul@gmail.com"
